@@ -2,6 +2,10 @@
 
 Explore global indicators like GDP, population, languages and more on an interactive 3D globe. The app consists of a static frontend (Mapbox GL JS + Chart.js) and a lightweight Node.js/Express backend that aggregates public datasets with caching.
 
+## Live Demo
+
+Visit the deployed app here: https://wdexplorer.vercel.app
+
 ## Features
 
 - Interactive world map (Mapbox GL JS, globe projection)
