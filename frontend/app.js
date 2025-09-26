@@ -1,4 +1,3 @@
-// Config will be injected from meta into window.* at runtime
 const DEFAULT_FLAG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="56"><rect width="100%" height="100%" fill="%23e5e7eb"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="12" fill="%236b7280">Flag</text></svg>';
 
 function $(sel) { return document.querySelector(sel); }
@@ -333,6 +332,24 @@ window.addEventListener('DOMContentLoaded', () => {
   if (img && !img.src) { img.src = 'flag.png'; }
   const map = setupMap();
   setupSearch(map);
+  
+  // Hide Mapbox attribution persistently
+  const hideAttribution = () => {
+    const attribution = document.querySelector('.mapboxgl-ctrl-attrib');
+    if (attribution) {
+      attribution.style.display = 'none';
+      attribution.remove();
+    }
+  };
+  
+  // Initial hide
+  hideAttribution();
+  
+  // Watch for attribution and hide it
+  const observer = new MutationObserver(() => {
+    hideAttribution();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 });
 
 function buildGrowthChart(points) {
