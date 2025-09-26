@@ -1,0 +1,1 @@
+Place a flag.png here for default placeholder flag.

@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "world-data-explorer-frontend",
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=600" }
+      ]
+    }
+  ]
+}
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Data Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="logo1.png" type="image/png" />
+    <link rel="apple-touch-icon" href="logo1.png" />
+    <!-- Env injection -->
+    <meta name="backend-url" content="http://localhost:8080" />
+    <meta name="mapbox-token" content="pk.eyJ1IjoibXF1YW5nenExIiwiYSI6ImNtZzB1eXJlYTBqazgyam9sZTh1ZmJ1OWcifQ.9UjUgI2KQqHAof-Emtgqgw" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+    <!-- Chart.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body class="light">
+    <header class="app-header">
+      <div class="brand">World Data Explorer</div>
+      <div class="actions">
+        <input id="searchInput" type="text" placeholder="Search country" />
+        <button id="searchBtn">Search</button>
+        <button id="themeToggle" title="Toggle theme">🌙</button>
+        <span id="navLastUpdated" class="nav-muted" title="Most recent data year">—</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div id="map"></div>
+      <aside id="sidebar" class="sidebar">
+        <button id="closeSidebar" class="close">×</button>
+        <div class="country-header">
+          <img id="flag" alt="Flag" src="flag.png" />
+          <div>
+            <h2 id="countryName">Select a country</h2>
+            <p id="countryOfficial"></p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>GDP (latest):</span> <strong id="gdpLatest">—</strong></div>
+          <div class="stat"><span>Population (latest):</span> <strong id="popLatest">—</strong></div>
+          <div class="stat"><span>Languages:</span> <strong id="languages">—</strong></div>
+          <hr />
+          <div class="stat"><span>Area (km²):</span> <strong id="areaKm2">—</strong></div>
+          <div class="stat"><span>Population density (/km²):</span> <strong id="density">—</strong></div>
+          <div class="stat"><span>GDP per capita (USD):</span> <strong id="gdppc">—</strong></div>
+          <div class="stat"><span>Inflation (%):</span> <strong id="inflation">—</strong></div>
+          <div class="stat"><span>Capital / Largest city:</span> <strong id="capLargest">—</strong></div>
+        </div>
+        <div class="chart-wrap"><canvas id="gdpChart" height="120"></canvas></div>
+        <div class="chart-wrap"><canvas id="growthChart" height="100"></canvas></div>
+      </aside>
+    </main>
+
+    <div id="tooltip" class="tooltip" style="display:none;"></div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
