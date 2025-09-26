@@ -1,3 +1,4 @@
+
 const DEFAULT_FLAG = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="56"><rect width="100%" height="100%" fill="%23e5e7eb"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="12" fill="%236b7280">Flag</text></svg>';
 
 function $(sel) { return document.querySelector(sel); }
